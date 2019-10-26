@@ -1,0 +1,104 @@
+body {
+  background-color: #494A5F;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  width: calc(100vw - 10px);
+  height:calc(100vh - 10px);
+  overflow: hidden;
+  margin-left:5px;
+  margin-top:5px;
+}
+
+.center {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.left-top{
+  position: absolute;
+  top: 5px;
+  right: 0;
+  bottom: 0;
+  left: 5px;
+}
+.anime-menu {
+  width: 40px;
+  height: 40px;
+}
+
+.anime-title {
+  width: 300px;
+  height: 10px;
+  top: 60px;
+}
+
+.anime-item {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  cursor: pointer;
+  text-align: center;
+  line-height: 40px;
+}
+
+.anime-item-child.anime-icon {
+  font-size: 24px;
+  color: inherit;
+}
+
+.anime-item-child.anime-text {
+  font-size: 14px;
+  color: inherit;
+  text-overflow-ellipsis:1 ;
+}
+/*提示信息的样式*/
+
+.anime-item-child::after{
+  content: attr(data-tip);
+  position: absolute;
+  display: none;
+  min-width:0;
+  width:auto;
+  left:50%;/*提示自左向右*/
+  height: 100%;
+  max-width:200px;
+  transition: all 2s linear;
+  font-size: 12px;
+  line-height: 12px;
+  /*为内容正常显示*/
+  background-color: inherit;
+  padding:2px 8px 0 20px;
+  border-radius:0 10px 10px 0;
+  color:inherit;
+  z-index: -1;
+  box-sizing: border-box;
+}
+
+.anime-item.anime-item-revert>.anime-item-child::after{
+  left: auto;
+  right: 50%;
+  /*提示自右向左,指定right为50%,
+  同时一定要指定left:auto,以实现自右向左的效果*/
+  padding:2px 20px 0 8px;
+  border-radius:10px 0 0 10px;
+}
+
+.anime-item:hover .anime-item-child::after,
+.anime-item-child:hover::after{
+  display: inline-block;
+  /*不换行*/
+  white-space: nowrap;
+  word-break: keep-all;
+}
