@@ -1,4 +1,4 @@
-import "./jquery-1.11.0.min.js";
+import "../node_modules/jquery/dist/jquery.min.js";
 import "./jquery-ui.min.js";
 import Anime from "./animeModule.js";
 
@@ -80,7 +80,7 @@ class Menu {
     __Time_Out=null;
     itemLength=0;
     constructor(menu,{defaultColor=Menu.DEFAULT_COLOR}={}) {
-        this.$element = $(menu);
+        this.$element = $(menu).addClass("anime-menu");
         this.size = 0;
         this.first = null;
         this.last = null;
@@ -96,13 +96,13 @@ class Menu {
         if(item.registered){
             return;
         }
-
+        let $element = item.$element;
         var menu = this;
         var isFirst = this.first == null;
         if (isFirst) {
             this.first = item;
             this.last = item;
-            this.first.$element.on("mouseup", function() {
+            $element.on("mouseup", function() {
                 if (menu.first.isMoving) {
                     menu.first.isMoving = false;        
                 } else {
@@ -110,7 +110,7 @@ class Menu {
                 }
             });
             /*jquery-ui的draggable*/
-            item.$element.draggable(
+            $element.draggable(
                 {
                     grid:[3,3],
                     containment:'body',//限定活动范围
@@ -138,7 +138,7 @@ class Menu {
             this.last = item;
         }
         /*静止时移位*/
-        item.$element.on("mousemove", function() {
+        $element.on("mousemove", function() {
             menu.__Time_Out&&clearTimeout(menu.__Time_Out);
             menu.__Time_Out = setTimeout(function() {
                 if (item.next && item.isMoving) {
@@ -146,21 +146,23 @@ class Menu {
                 }
             });
         });
-        this.$element.after(item.$element);
+        this.$element.append($element);
         this.itemLength++;//数量增加
         if(isFirst){
-            /*记录按钮组起始位置*/
+            /*元素添加之后记录按钮组起始位置*/
             Reflect.defineProperty(this,"startPosition",{
                 value:{
-                    left: item.$element.css('left'),
-                    top:item.$element.css('top')
+                    left: $element.css('left'),
+                    top:$element.css('top')
                 },
                 writable:false
             });
+            /*首个元素设置box-shadow，以好遮挡后面其它的元素*/
+            $element.css("box-shadow",`${$element.css('background-color')} 0 0 0 1px`);
         }
         /*元素信息同步*/
         item.registered=true;//标志修改
-        item.$element.css("z-index",Menu.MaxLength-this.itemLength);//层次设置
+        $element.css("z-index",Menu.MaxLength-this.itemLength);//层次设置
     }
     
     open() {

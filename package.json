@@ -1,20 +1,24 @@
 {
-  "name": "dragnav",
+  "name": "dragmenu",
   "version": "1.0.0",
-  "description": "The simple nav plugin based on jquery.ui",
-  "browser": "dragnav.js",
+  "description": "The simple menu plugin based on jquery.ui",
+  "browser": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"View the testModule.html\" && exit 1",
+    "init": "npm install --save",
+    "export": "npm publish"
   },
   "keywords": [
-    "dragnav",
+    "dragmenu",
     "draggable",
     "jquery.ui",
-    "nav",
     "menu"
   ],
-  "author": "lfh",
-  "publishConfig":{
-    "registry" : "http://192.168.2.132:8081/nexus/content/repositories/local_npm/"
+  "author": "fhtiger",
+  "dependencies": {
+    "jquery": "^1.11.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }
