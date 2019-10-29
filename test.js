@@ -1,10 +1,10 @@
 /**
  * index.js
  */
-import {DragMenu} from "./index.js";
+import "./node_modules/jquery/dist/jquery.min.js";
+import DragMenu,{ItemAdd} from "./js/dragMenuModule.js";
 
 var menu = DragMenu("#myMenu");
-var ItemAdd = DragMenu.ItemAdd;
 ItemAdd({
     icon:".fi-list",
     color:'#000'

@@ -1,4 +1,3 @@
-import "../node_modules/jquery/dist/jquery.min.js";
 import "./jquery-ui.min.js";
 import Anime from "./animeModule.js";
 
@@ -260,3 +259,5 @@ $(document).delay(30).queue(function(next) {
         next();
     });
 });*/
+
+
