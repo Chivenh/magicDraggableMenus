@@ -1,5 +1,5 @@
 /**
- * dragnav
+ * dragmenu
  */
 import * as dragmenu from "./js/dragMenuModule.js";
 

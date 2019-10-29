@@ -1,6 +1,6 @@
 {
   "name": "dragmenu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The simple menu plugin based on jquery.ui",
   "browser": "index.js",
   "scripts": {
@@ -15,6 +15,7 @@
     "menu"
   ],
   "author": "fhtiger",
+  "license": "MIT",
   "dependencies": {
     "jquery": "^1.11.0"
   },
