@@ -1,16 +1,25 @@
-###Example
- * *view the testModule.html*
+### Example
+ * *view the [testModule.html](./testModule.html)*
+ * *![e.g](https://github.com/ghostFlyTiger/magicDraggableMenus/css/readme.png)*
 ```html
-    <div class="left-top anime-menu" id="firstMenu">
-		<!--按钮起始位置--></i>
-	</div>
+    <div class="left-top " id="firstMenu">
+    		<!--按钮起始位置-->
+    	</div>
+        <div class="left-top left-top2 " id="secondMenu">
+            <!--按钮起始位置-->
+        </div>
+    	<script type="module" src="test.js"></script>
 ```
-```javascript
-import MenuCreator,{ItemAdd} from "./index.js";
+```js
+import "./node_modules/jquery/dist/jquery.min.js";
+import DragMenu,{ItemAdd} from "./js/dragMenuModule.js";
 
-var menu = MenuCreator("#myMenu");
+var menu = DragMenu("#firstMenu",{
+    draggable:false
+});
 ItemAdd({
-    icon:".fi-list"
+    icon:".fi-list",
+    color:'#000'
 },menu);
 ItemAdd({
     icon:".fi-torso",
@@ -18,7 +27,30 @@ ItemAdd({
     color:'#FF5C5C',
     handler:function (e) {
         let target=e.target;
-        alert(target.classList.toString());
+        alert('人员安排---');
     }
 },menu);
+
+var menu2 = DragMenu('#secondMenu',{
+    defaultColor:'#4f8e8a',
+});
+
+menu2.addItem({
+    icon:"分组",
+    css:{
+        color:'#fff',
+        "fontSize":"10px"
+    }
+}).addItem({
+    icon:".fi-paypal",
+    color:"#7791ff",
+    title:'加工组',
+    handler:function () {
+        alert('加工组，加油!');
+    }
+}).addItem({
+    icon:".fi-link",
+    color:"#64F592",
+    title:'装配组'
+});
 ```

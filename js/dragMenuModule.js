@@ -78,7 +78,7 @@ class Menu {
     static STATUS={opened:"opened",closed:"closed"};
     __Time_Out=null;
     itemLength=0;
-    constructor(menu,{defaultColor=Menu.DEFAULT_COLOR}={}) {
+    constructor(menu,{defaultColor=Menu.DEFAULT_COLOR,draggable=true}={}) {
         this.$element = $(menu).addClass("anime-menu");
         this.size = 0;
         this.first = null;
@@ -86,9 +86,10 @@ class Menu {
         this.hasMoved = false;//是否移动过
         this.status = Menu.STATUS.closed;
         this.defaultColor=defaultColor;
+        this.draggable=draggable;
     }
     addItem(itemOptions){
-        this.add(Item.of(itemOptions));
+        Item.of(itemOptions,this);
         return this;
     }
     add(item) {
@@ -109,7 +110,7 @@ class Menu {
                 }
             });
             /*jquery-ui的draggable*/
-            $element.draggable(
+            this.draggable&& $element.draggable(
                 {
                     grid:[3,3],
                     containment:'body',//限定活动范围
@@ -237,8 +238,8 @@ class Menu {
         this.status=Menu.STATUS.closed;
         this.hasMoved=false;
     }
-    static of(menu){
-        return new Menu(menu);
+    static of(menu,options){
+        return new Menu(menu,options);
     }
     
 }
