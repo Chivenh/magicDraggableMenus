@@ -1,4 +1,5 @@
 ###Example
+ * *view the testModule.html*
 ```html
     <div class="left-top anime-menu" id="firstMenu">
 		<!--按钮起始位置--></i>
