@@ -1,6 +1,6 @@
 ### Example
- * *view the [testModule.html](./testModule.html)*
- * *![e.g](https://github.com/ghostFlyTiger/magicDraggableMenus/css/readme.png)*
+ * *view the [testModule.html](https://github.com/ghostFlyTiger/magicDraggableMenus/tree/master/testModule.html)*
+ * *![e.g](https://github.com/ghostFlyTiger/magicDraggableMenus/tree/master/css/readme.png)*
 ```html
     <div class="left-top " id="firstMenu">
     		<!--按钮起始位置-->
