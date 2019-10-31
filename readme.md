@@ -1,6 +1,6 @@
 ### Example
- * *view the [testModule.html](https://github.com/ghostFlyTiger/magicDraggableMenus/tree/master/testModule.html)*
- * *![e.g](https://github.com/ghostFlyTiger/magicDraggableMenus/tree/master/css/readme.png)*
+ * *view the [test.html](http://github.fhtiger.com/magicDraggableMenus/index.html)*
+ * *![e.g](http://github.fhtiger.com/magicDraggableMenus/css/readme.png)*
 ```html
     <div class="left-top " id="firstMenu">
     		<!--按钮起始位置-->
@@ -11,9 +11,8 @@
     	<script type="module" src="test.js"></script>
 ```
 ```js
-import "./node_modules/jquery/dist/jquery.min.js";
-import DragMenu,{ItemAdd} from "./js/dragMenuModule.js";
-
+import DragMenu from "/node_modules/dragmenu/index.js";
+var ItemAdd = DragMenu.ItemAdd;
 var menu = DragMenu("#firstMenu",{
     draggable:false
 });

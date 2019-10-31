@@ -1,7 +1,7 @@
 /**
  * index.js
  */
-import "./node_modules/jquery/dist/jquery.min.js";
+import "./js/jquery-1.11.0.min.js";
 import DragMenu,{ItemAdd} from "./js/dragMenuModule.js";
 
 var menu = DragMenu("#firstMenu",{

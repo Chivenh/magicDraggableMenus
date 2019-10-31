@@ -1,6 +1,6 @@
 {
   "name": "dragmenu",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The simple menu plugin based on jquery.ui",
   "browser": "index.js",
   "scripts": {
@@ -16,6 +16,7 @@
   ],
   "author": "fhtiger",
   "license": "MIT",
+  "homepage": "http://github.fhtiger.com/magicDraggableMenus/index.html",
   "repository": {
     "type": "git",
     "url": "https://github.com/ghostFlyTiger/magicDraggableMenus.git"
